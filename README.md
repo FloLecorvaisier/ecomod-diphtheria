@@ -2,15 +2,15 @@
 
 Scripts presented in this repository are expected to work on R version 4.3.2. Versions of the R packages used to produce the results shown are presented at the end of the document.
 
-The file `model.c` in the `files/` folder is the C script containing the model used in the article ^1^. It can be compiled directly in R using the command `system(R CMD SHLIB files/model.c)`. This command will produce two files: `model.o` and `model.so`, which are already included in the `files/` folder.
+The file `model.c` in the `files/` folder is the C script containing the model used in the article <sup>1</sup>. It can be compiled directly in R using the command `system(R CMD SHLIB files/model.c)`. This command will produce two files: `model.o` and `model.so`, which are already included in the `files/` folder.
 
 The `init.R` script must be run before any other one. It loads the packages needed for other scripts to work and initiates some variables (e.g., parameters values used in the model).
 
 The simulations are mainly run through the `simus-prev.R` script. It tests different values for six parameters of the model (+ the vaccine coverage) and checks what the prevalence of the toxigenic strain is at equilibrium. The script `simus-R0.R` runs more simulations, this time testing the impact of having different values of `r1` and `p1` / `p2` (see the related article for the definition of the parameters) on the transmission number $R_0$ of the toxigenic strains.
 
-Once all simulations are done, the figures can be produced. The four figures of the article are produced with three scripts. The first one, `fig-1.R` draws the schematic diagram of the model, as odd as it is to draw it using R. The second one, `fig-2.3R`, creates the figures showing the absolute and relative prevalence of the toxigenic strain for different values of the parameters. The third one, `fig-4.R`, creates the figure showing how moving the vaccine coverage and efficacy can move the R~0~ of the toxigenic strain, at the DFE or at the CEE ^2^.
+Once all simulations are done, the figures can be produced. The four figures of the article are produced with three scripts. The first one, `fig-1.R` draws the schematic diagram of the model, as odd as it is to draw it using R. The second one, `fig-2.3R`, creates the figures showing the absolute and relative prevalence of the toxigenic strain for different values of the parameters. The third one, `fig-4.R`, creates the figure showing how moving the vaccine coverage and efficacy can move the $R_0$ of the toxigenic strain, at the DFE or at the CEE <sup>2</sup>.
 
-If someone wants to run all the scripts, it should not take "too much" time. With a good computer, all scripts should run in half a day at most ^3^. What is particularly long is to run the simulations, and especially running the `sumus-R0.R` script.
+If someone wants to run all the scripts, it should not take "too much" time. With a good computer, all scripts should run in half a day at most <sup>3</sup>. What is particularly long is to run the simulations, and especially running the `sumus-R0.R` script.
 
 Here are the details of the R install and packages loaded to run the different scripts (obtained using `sessionInfo()`):
 
@@ -47,8 +47,8 @@ loaded via a namespace (and not attached):
 [41] tidyselect_1.2.0  rstudioapi_0.15.0 farver_2.1.1      labeling_0.4.3    carData_3.0-5     compiler_4.3.2    gridtext_0.1.5
 ```
 
-> ^1^ The model is written in a C script rather than a R script to increase speed, as numerical simulations returned by the `deSolve` package are obtained approximatively 60x faster if the model is encoded in a compiled langage than in R. To learn more on using the `deSolve` package with compiled langages, see [this vignette](https://cran.r-project.org/web/packages/deSolve/vignettes/compiledCode.pdf).
+> <sup>1</sup> The model is written in a C script rather than a R script to increase speed, as numerical simulations returned by the `deSolve` package are obtained approximatively 60x faster if the model is encoded in a compiled langage than in R. To learn more on using the `deSolve` package with compiled langages, see [this vignette](https://cran.r-project.org/web/packages/deSolve/vignettes/compiledCode.pdf).
 
-> ^2^ DFE: Disease-Free equilibrium; CEE: *Cd~2~*-Endemic Equilibrium. See the article for more details.
+> <sup>2</sup> DFE: Disease-Free equilibrium; CEE: *Cd~2~*-Endemic Equilibrium. See the article for more details.
 
-> ^3^ I run the scripts on a device with 16 GB of DDR4 RAM and an Intel Core i7-1165G7 processor (1.2-2.8 GHz).
+> <sup>3</sup> I run the scripts on a device with 16 GB of DDR4 RAM and an Intel Core i7-1165G7 processor (1.2-2.8 GHz).
