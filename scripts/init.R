@@ -41,6 +41,7 @@ list_values$R0 <- seq(1.8, 3.4, .4)
 list_values$r1 <- c(.5, .6, .7)
 list_values$r2 <- c(.34, .38, .42)
 list_values$prop <- seq(.25, 1, .25)
+list_values$gamma <- 1 / c(11.5, 15, 18.5)
 
 ## Initial values for the different compartments of the model:
 init <- c(S  = 10096.33,

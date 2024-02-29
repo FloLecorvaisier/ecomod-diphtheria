@@ -1,4 +1,4 @@
-## Running the simulations with all the tested vallues of the parameters.
+## Running the simulations with all the tested values of the parameters.
 ## The summarized output of the simulations for each value of the parameters
 ## is saved in a different file with a name written like "prev-[name of the
 ## parameter]-[value tested]".
