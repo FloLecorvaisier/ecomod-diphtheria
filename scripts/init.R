@@ -43,17 +43,24 @@ list_values$r2 <- c(.34, .38, .42)
 list_values$prop <- seq(.25, 1, .25)
 list_values$gamma <- 1 / c(11.5, 15, 18.5)
 
-## Initial values for the different compartments of the model:
+## Initial values for the different compartments of the model. In their
+## formulations, they may not look like what is explained in the main text that
+## initial conditions correspond to the CEE of the DFE, but near equilibrium 
+## these initial conditions match what we would obtain with the CEE and DFE
+## initial conditions.
+## Corresponding to the CEE:
 init <- c(S  = 10096.33,
           I1 = 1,
           I2 = 1,
           V  = 0,
           R  = 0)
+## Not used.
 init_noI1 <- c(S = 10097.33,
                I1 = 0,
                I2 = 1,
                V = 0,
                R = 0) 
+## Corresponds to the DFE.
 init_noI2 <- c(S  = 10097.33,
                I1 = 1,
                I2 = 0,

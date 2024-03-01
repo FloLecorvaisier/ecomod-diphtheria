@@ -30,7 +30,7 @@ for (i in 1:length(names(list_values))) {
   data_prev2 <- data_prev[data_prev$param == param_name, ]
   data_prev2 <- data.frame(p1 = rep(data_prev2$p1, 2), 
                            prev = c(data_prev2$prev_abs, data_prev2$prev_abs_noI2),
-                           val = rep(data_prev2$value, times = 2), 
+                           val = rep(data_prev2$value, 2), 
                            type = rep(c("I2", "noI2"), each = nrow(data_prev2)))
   ggplot(data_prev2) +
     geom_line(aes(x = p1, y = prev * pop_size / 1e4, 
